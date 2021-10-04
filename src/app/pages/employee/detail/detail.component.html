@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h1>Form Detail Employee</h1>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row pl-3 pr-3">
+        <div class="col-lg-6 col-md-6">
+          <label class="text-label">Username</label>
+          <input
+            type="text"
+            readonly
+            class="form-control mt-1"
+            [value]="data?.userName"
+          />
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <label class="text-label">Email</label>
+          <input
+            type="text"
+            readonly
+            class="form-control mt-1"
+            [value]="data?.email"
+          />
+        </div>
+        <div class="col-lg-6 col-md-6 mt-3">
+          <label class="text-label">First Name</label>
+          <input
+            type="text"
+            readonly
+            class="form-control mt-1"
+            [value]="data?.firstName"
+          />
+        </div>
+        <div class="col-lg-6 col-md-6 mt-3">
+          <label class="text-label">Last Name</label>
+          <input
+            type="text"
+            readonly
+            class="form-control mt-1"
+            [value]="data?.lastName"
+          />
+        </div>
+        <div class="col-lg-6 col-md-6 mt-3">
+          <label class="text-label">Birthdate</label>
+          <input
+            type="text"
+            readonly
+            class="form-control mt-1"
+            [value]="data?.birthDate | date: 'dd LLL yyyy'"
+          />
+        </div>
+        <div class="col-lg-6 col-md-6 mt-3">
+          <label class="text-label">Basic Salary</label>
+          <input
+            type="text"
+            readonly
+            class="form-control mt-1"
+            [value]="data?.basicSalary | currency: 'Rp '"
+          />
+        </div>
+        <div class="col-lg-6 col-md-6 mt-3">
+          <label class="text-label">Group</label>
+          <input
+            type="text"
+            readonly
+            class="form-control mt-1"
+            [value]="data?.group"
+          />
+        </div>
+        <div class="col-lg-6 col-md-6 mt-3">
+          <label class="text-label">Status</label>
+          <input
+            type="text"
+            readonly
+            class="form-control mt-1 capitalize"
+            [value]="data?.status"
+          />
+        </div>
+        <div class="col-lg-12 col-md-12 mt-3">
+          <label class="text-label">Description</label>
+          <input
+            type="text"
+            readonly
+            class="form-control mt-1"
+            [value]="data?.description | date: 'dd LLL yyyy'"
+          />
+        </div>
+        <div class="col-12 mt-3 floatRight">
+          <button type="button" class="btn btn-success" (click)="backToList()">
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

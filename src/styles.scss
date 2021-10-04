@@ -1,1 +1,143 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@swimlane/ngx-datatable/index.css";
+@import "~@swimlane/ngx-datatable/themes/material.scss";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.invalid-validation {
+  color: #ff0000;
+}
+
+//data table css
+.ngx-datatable.bootstrap {
+  box-shadow: none;
+  font-size: 12px;
+
+  .datatable-header {
+    height: unset !important;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    color: #899497;
+
+    .datatable-header-cell {
+      vertical-align: bottom;
+      padding: 0.75rem;
+      border-bottom: 1px solid #d1d4d7;
+
+      .datatable-header-cell-label {
+        line-height: 24px;
+      }
+    }
+  }
+
+  .datatable-body {
+    .datatable-body-row {
+      vertical-align: top;
+      border-top: 1px solid #d1d4d7;
+
+      &.datatable-row-even {
+        background-color: white;
+      }
+
+      &.active {
+        background-color: #1483ff;
+        color: #fff;
+      }
+
+      .datatable-body-cell {
+        padding: 0.75rem;
+        text-align: left;
+        vertical-align: top;
+      }
+    }
+
+    .empty-row {
+      $alert-padding-y: 0.75rem !default;
+      $alert-padding-x: 1.25rem !default;
+      position: relative;
+      padding: $alert-padding-y $alert-padding-x;
+      margin-bottom: 0;
+    }
+  }
+
+  .datatable-footer {
+    background: #ffffff;
+    color: var(--brown-grey);
+    margin-top: -1px;
+
+    .page-count {
+      color: #899497;
+      line-height: 50px;
+      height: 50px;
+      padding: 0 1.2rem;
+    }
+
+    .datatable-pager {
+      margin: 0 10px;
+      vertical-align: top;
+
+      ul {
+        li {
+          margin: 10px 0px;
+
+          &:not(.disabled) {
+            &.active,
+            &:hover {
+              a {
+                background-color: #899497;
+                font-weight: bold;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+
+      a {
+        height: 22px;
+        min-width: 24px;
+        line-height: 22px;
+        padding: 0;
+        border-radius: 3px;
+        margin: 0 3px;
+        text-align: center;
+        vertical-align: top;
+        text-decoration: none;
+        vertical-align: bottom;
+        color: #899497;
+      }
+
+      .datatable-icon-left,
+      .datatable-icon-skip,
+      .datatable-icon-right,
+      .datatable-icon-prev {
+        font-size: 18px;
+        line-height: 27px;
+        padding: 0 3px;
+      }
+    }
+  }
+
+  .datatable-summary-row {
+    .datatable-body-row {
+      .datatable-body-cell {
+        font-weight: bold;
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h1>List Employee</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-success" (click)="goToAddPage()">
+        Add Employee
+      </button>
+    </div>
+  </div>
+  <div class="card mt-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            (change)="changeSelect($event)"
+          >
+            <option selected>Select Row</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+          </select>
+        </div>
+        <div class="col-9 text-right">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search First Name Or Last Name..."
+            (keyup)="updateFilter($event)"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ngx-datatable
+            #myTable
+            class="bootstrap"
+            [headerHeight]="100"
+            [footerHeight]="100"
+            [rowHeight]="'auto'"
+            [rows]="rows"
+            [columnMode]="'force'"
+            [externalPaging]="true"
+            [offset]="offset"
+            (page)="changePage($event)"
+            [scrollbarV]="false"
+            [scrollbarH]="true"
+            [limit]="page.size"
+            [count]="page.totalPages"
+          >
+            <ngx-datatable-column name="Username" prop="userName">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="capitalize">
+                  {{ value }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="FirstName" prop="firstName">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="capitalize">
+                  {{ value }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="LastName" prop="lastName">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="capitalize">
+                  {{ value }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Email" prop="email">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="capitalize">
+                  {{ value }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="BirthDate" prop="birthDate">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="capitalize">
+                  {{ value | date: "dd LLL yyyy" }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Basic Salary" prop="basicSalary">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="capitalize">
+                  {{ value }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Group" prop="group">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="capitalize">
+                  {{ value }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Description" prop="description">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="capitalize">
+                  {{ value | date: "dd LLL yyyy" }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column
+              name="Aksi"
+              prop="id"
+              [sortable]="false"
+              [width]="300"
+            >
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-block marginButton"
+                  (click)="goToDetailPage(value)"
+                >
+                  Detail
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-warning btn-block  marginButton"
+                  (click)="edit()"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-block "
+                  (click)="delete(value)"
+                >
+                  Delete
+                </button>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
