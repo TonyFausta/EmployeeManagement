@@ -58,10 +58,6 @@ export class AddComponent implements OnInit {
     return (this.fg.controls['users'] as FormArray).controls;
   }
 
-  get f() {
-    return this.fg.controls;
-  }
-
   onClickedSave() {
     this.submitted = true;
 

@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DataService } from 'src/app/shared/services/data.service';
 import { Page } from 'src/app/shared/models/Page';
 import { Router } from '@angular/router';
 import { EmployeeData } from 'src/app/assets/data';

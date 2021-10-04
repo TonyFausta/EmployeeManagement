@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeData } from 'src/app/assets/data';
-import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-detail',
@@ -12,11 +11,7 @@ export class DetailComponent implements OnInit {
   id: any;
   data: any;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private dataSrv: DataService,
-    private router: Router
-  ) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.params.subscribe(params => {
       this.id = params.id;
     });
