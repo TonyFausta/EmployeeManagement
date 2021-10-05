@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailComponent } from './detail/detail.component';
 import { AddComponent } from './add/add.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
@@ -18,13 +19,22 @@ const routes: Routes = [
     component: AddComponent
   },
   {
+    path: 'edit/:id',
+    component: EditComponent
+  },
+  {
     path: 'detail/:id',
     component: DetailComponent
   }
 ];
 
 @NgModule({
-  declarations: [EmployeeComponent, DetailComponent, AddComponent],
+  declarations: [
+    EmployeeComponent,
+    DetailComponent,
+    AddComponent,
+    EditComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

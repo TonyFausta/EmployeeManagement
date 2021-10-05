@@ -14,25 +14,29 @@
   <div class="card mt-3">
     <div class="card-body">
       <div class="row">
-        <div class="col-3">
+        <div class="col-lg-1 col-sm-3 mt-2">
+          <label>Select Row:</label>
+        </div>
+        <div class="col-lg-3 col-sm-3">
           <select
             class="form-select"
             aria-label="Default select example"
             (change)="changeSelect($event)"
           >
-            <option selected>Select Row</option>
-            <option value="5">5</option>
+            <option selected value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="25">25</option>
           </select>
         </div>
-        <div class="col-9 text-right">
+        <div class="col-lg-4 col-sm-2"></div>
+        <div class="col-lg-4 col-sm-2 text-right">
           <input
             type="text"
             class="form-control"
             placeholder="Search First Name Or Last Name..."
-            (keyup)="updateFilter($event)"
+            [(ngModel)]="search"
+            (change)="updateFilter($event)"
           />
         </div>
       </div>
@@ -54,7 +58,7 @@
             [limit]="page.size"
             [count]="page.totalPages"
           >
-            <ngx-datatable-column name="Username" prop="userName">
+            <ngx-datatable-column name="Username" prop="username">
               <ng-template let-value="value" ngx-datatable-cell-template>
                 <div class="capitalize">
                   {{ value }}
@@ -96,9 +100,7 @@
 
             <ngx-datatable-column name="Basic Salary" prop="basicSalary">
               <ng-template let-value="value" ngx-datatable-cell-template>
-                <div class="capitalize">
-                  {{ value }}
-                </div>
+                <div class="capitalize">Rp. {{ value | number }}</div>
               </ng-template>
             </ngx-datatable-column>
 
@@ -135,13 +137,13 @@
                 <button
                   type="button"
                   class="btn btn-warning btn-block  marginButton"
-                  (click)="edit()"
+                  (click)="goToEditPage(value)"
                 >
                   Edit
                 </button>
                 <button
                   class="btn btn-danger btn-block "
-                  (click)="delete(value)"
+                  (click)="goToDeletePage(value)"
                 >
                   Delete
                 </button>

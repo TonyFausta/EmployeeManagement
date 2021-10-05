@@ -21,8 +21,6 @@ export class AddComponent implements OnInit {
   submitted = false;
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   today = dayjs().format('YYYY-MM-DDTHH:mm');
-  inputSalary = document.getElementById('inputSalary');
-  invalidChars = ['-', '+', 'e'];
 
   constructor(
     private fb: FormBuilder,
@@ -74,7 +72,7 @@ export class AddComponent implements OnInit {
     const stringId = EmployeeData.length + 1;
     const newUser = {
       id: stringId.toString(),
-      userName: this.fg.value.users[0].username,
+      username: this.fg.value.users[0].username,
       firstName: this.fg.value.users[0].firstName,
       lastName: this.fg.value.users[0].lastName,
       birthDate: this.fg.value.users[0].birthDate,
@@ -86,7 +84,6 @@ export class AddComponent implements OnInit {
     };
     EmployeeData.push(newUser);
 
-    localStorage.setItem('employeeData', JSON.stringify(EmployeeData));
     this.toast.success('Add Data Berhasil');
     this.router.navigate(['/employee-list-page']);
   }

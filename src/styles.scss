@@ -9,6 +9,16 @@
   align-items: center;
 }
 
+.position {
+
+  margin: 0 20px 0 0;
+}
+
+.floatRight {
+  text-align: end;
+}
+
+
 .center {
   /* Center vertically and horizontally */
   position: absolute;
@@ -96,6 +106,7 @@
           margin: 10px 0px;
 
           &:not(.disabled) {
+
             &.active,
             &:hover {
               a {
