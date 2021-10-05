@@ -89,12 +89,14 @@ export class EditComponent implements OnInit {
       lastName: this.fg.value.lastName,
       birthDate: this.fg.value.birthDate,
       email: this.fg.value.email,
-      group: this.fg.value.status,
+      group: this.fg.value.group,
       basicSalary: this.fg.value.basicSalary,
       description: this.fg.value.description,
       status: this.fg.value.status
     };
-    EmployeeData.push(newUser);
+
+    //timpah data dengan data baru susuai indeny
+    EmployeeData[this.data.id - 1] = newUser;
 
     this.toast.success('Edit Data Berhasil');
     this.router.navigate(['/employee-list-page']);

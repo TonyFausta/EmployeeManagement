@@ -112,6 +112,14 @@
               </ng-template>
             </ngx-datatable-column>
 
+            <ngx-datatable-column name="Status" prop="status">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="capitalize">
+                  {{ value }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
             <ngx-datatable-column name="Description" prop="description">
               <ng-template let-value="value" ngx-datatable-cell-template>
                 <div class="capitalize">
