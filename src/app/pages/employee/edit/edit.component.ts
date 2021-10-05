@@ -51,7 +51,6 @@ export class EditComponent implements OnInit {
   }
 
   getDataForm(data: any) {
-    console.log(data, 'ini data');
     const birthDate = dayjs(data.birthDate).format('YYYY-MM-DDTHH:mm');
     const description = dayjs(data.description).format('YYYY-MM-DDTHH:mm');
 
