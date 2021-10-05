@@ -32,16 +32,15 @@ export class EmployeeComponent implements OnInit {
     this.tempDataReverse = [...EmployeeData].reverse();
     this.rows = this.tempDataReverse;
     if (localStorage.getItem('searchParam')) {
-      const param: any = JSON.parse(
-        localStorage.getItem('searchParam') || '{}'
-      );
-      this.search = param.search;
+      const searchLocalStorage: any =
+        localStorage.getItem('searchParam') || '{}';
+      this.search = searchLocalStorage;
       const temp = this.tempDataReverse.filter(function(d: any) {
         return (
-          d.firstName.toLowerCase().indexOf(param.search) !== -1 ||
-          !param.search ||
-          d.lastName.toLowerCase().indexOf(param.search) !== -1 ||
-          !param.search
+          d.firstName.toLowerCase().indexOf(searchLocalStorage) !== -1 ||
+          !searchLocalStorage ||
+          d.lastName.toLowerCase().indexOf(searchLocalStorage) !== -1 ||
+          !searchLocalStorage
         );
       });
 
@@ -93,10 +92,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   goToDetailPage(id: any) {
-    const dataSearch = {
-      search: this.search
-    };
-    localStorage.setItem('searchParam', JSON.stringify(dataSearch));
+    localStorage.setItem('searchParam', this.search);
     this.router.navigate([`/employee-list-page/detail/${id}`]);
   }
 
