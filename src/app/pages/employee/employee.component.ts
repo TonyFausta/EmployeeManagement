@@ -92,7 +92,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   goToDetailPage(id: any) {
-    localStorage.setItem('searchParam', this.search);
+    localStorage.setItem('searchParam', this.search || '');
     this.router.navigate([`/employee-list-page/detail/${id}`]);
   }
 
