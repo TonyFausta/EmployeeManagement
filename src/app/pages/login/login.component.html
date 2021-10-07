@@ -3,43 +3,62 @@
     <div *ngIf="showAlert" class="alert alert-danger mt-3" role="alert">
       input Salah <br />Username & Password adalah 'admin'
     </div>
-    <div class="row center">
-      <div class="col-12">
-        <h1><b>Form Login</b></h1>
-      </div>
-      <div class="col-lg-12">
-        <input
-          type="text"
-          class="form-control"
-          [ngClass]="{
-            'is-invalid': submitted && f.username.errors
-          }"
-          formControlName="username"
-          placeholder="Username"
-        />
-        <div class="invalid-validation" *ngIf="submitted && f.username.errors">
-          <div *ngIf="f.username.errors.required">Username Harus Di isi</div>
+    <div class="card center">
+      <div class="card-header">
+        <div class="col-12">
+          <h1><b>Form Login</b></h1>
         </div>
       </div>
-      <div class="col-12 mt-3">
-        <input
-          type="password"
-          class="form-control"
-          [ngClass]="{
-            'is-invalid': submitted && f.password.errors
-          }"
-          formControlName="password"
-          placeholder="Password"
-        />
+      <div class="card-body ">
+        <div class="row ">
+          <div class="col-lg-12">
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': submitted && f.username.errors
+              }"
+              formControlName="username"
+              placeholder="Username"
+            />
+            <div
+              class="invalid-validation"
+              *ngIf="submitted && f.username.errors"
+            >
+              <div *ngIf="f.username.errors.required">
+                Username Harus Di isi
+              </div>
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <input
+              type="password"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': submitted && f.password.errors
+              }"
+              formControlName="password"
+              placeholder="Password"
+            />
 
-        <div class="invalid-validation" *ngIf="submitted && f.password.errors">
-          <div *ngIf="f.password.errors.required">Password Harus Di isi</div>
+            <div
+              class="invalid-validation"
+              *ngIf="submitted && f.password.errors"
+            >
+              <div *ngIf="f.password.errors.required">
+                Password Harus Di isi
+              </div>
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <button
+              class="btn form-control btn-primary btn-block"
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="col-12 mt-3">
-        <button class="btn form-control btn-primary btn-block" type="submit">
-          Login
-        </button>
       </div>
     </div>
   </form>

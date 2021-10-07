@@ -31,11 +31,13 @@ export class EmployeeComponent implements OnInit {
     //reverse data list id besar ke kecil
     this.tempDataReverse = [...EmployeeData].reverse();
     this.rows = this.tempDataReverse;
-    if (localStorage.getItem('searchParam')) {
-      const searchLocalStorage: any =
-        localStorage.getItem('searchParam') || '{}';
+    if (
+      localStorage.getItem('searchParam') ||
+      localStorage.getItem('currentPage')
+    ) {
+      const searchLocalStorage: any = localStorage.getItem('searchParam') || '';
       this.search = searchLocalStorage;
-      const temp = this.tempDataReverse.filter(function(d: any) {
+      const dataSorted = this.tempDataReverse.filter(function(d: any) {
         return (
           d.firstName.toLowerCase().indexOf(searchLocalStorage) !== -1 ||
           !searchLocalStorage ||
@@ -45,14 +47,14 @@ export class EmployeeComponent implements OnInit {
       });
 
       // update the rows
-      this.rows = temp;
+      this.rows = dataSorted;
       localStorage.removeItem('searchParam');
     }
   }
 
   changePage(pageInfo: any) {
     this.page.pageNumber = pageInfo.offset + 1;
-    // this.page.size = pageInfo.pageSize;
+    this.page.size = pageInfo.pageSize;
     const tempDataReverse = [...EmployeeData].reverse();
 
     this.rows = tempDataReverse.slice(
@@ -92,6 +94,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   goToDetailPage(id: any) {
+    console.log(this.page.pageNumber, 'ini page number');
     localStorage.setItem('searchParam', this.search || '');
     this.router.navigate([`/employee-list-page/detail/${id}`]);
   }

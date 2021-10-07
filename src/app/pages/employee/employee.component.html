@@ -5,9 +5,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-6">
       <button class="btn btn-success" (click)="goToAddPage()">
         Add Employee
+      </button>
+    </div>
+    <div class="col-6 floatRight">
+      <button class="btn btn-danger" [routerLink]="'/login'">
+        logout
       </button>
     </div>
   </div>
