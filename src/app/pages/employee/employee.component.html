@@ -41,7 +41,7 @@
             class="form-control"
             placeholder="Search First Name Or Last Name..."
             [(ngModel)]="search"
-            (change)="updateFilter($event)"
+            (keyup)="updateFilter($event)"
           />
         </div>
       </div>

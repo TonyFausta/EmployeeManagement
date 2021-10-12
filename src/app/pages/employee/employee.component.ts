@@ -94,7 +94,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   goToDetailPage(id: any) {
-    console.log(this.page.pageNumber, 'ini page number');
     localStorage.setItem('searchParam', this.search || '');
     this.router.navigate([`/employee-list-page/detail/${id}`]);
   }
