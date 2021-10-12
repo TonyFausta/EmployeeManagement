@@ -69,7 +69,7 @@ export class EmployeeComponent implements OnInit {
     const tempDataReverse = [...EmployeeData].reverse();
 
     // filter our data
-    const temp = tempDataReverse.filter(function(d: any) {
+    const filteredData = tempDataReverse.filter(function(d: any) {
       return (
         d.firstName.toLowerCase().indexOf(val) !== -1 ||
         !val ||
@@ -79,8 +79,8 @@ export class EmployeeComponent implements OnInit {
     });
 
     // update the rows
-    this.rows = temp;
-    this.page.totalPages = temp.length;
+    this.rows = filteredData;
+    this.page.totalPages = filteredData.length;
     // Whenever the filter changes, always go back to the first page
     this.myTable.offset = 0;
   }
