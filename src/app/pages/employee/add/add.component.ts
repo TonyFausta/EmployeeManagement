@@ -77,7 +77,7 @@ export class AddComponent implements OnInit {
       lastName: this.fg.value.users[0].lastName,
       birthDate: this.fg.value.users[0].birthDate,
       email: this.fg.value.users[0].email,
-      group: this.fg.value.users[0].status,
+      group: this.fg.value.users[0].group,
       basicSalary: this.fg.value.users[0].basicSalary,
       description: this.fg.value.users[0].description,
       status: this.fg.value.users[0].status
